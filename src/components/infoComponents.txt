@@ -1,0 +1,46 @@
+ProjectForm.js - форма для создания проекта. Используется как содержимое (форма), которое показывается внутри модального окна ModalNew.
+Содержит поля ввода (название, описание, ссылка).
+При отправке формы (handleSubmit) отправляет данные на сервер (POST http://localhost:5000/projects).
+Не содержит логики модального окна — просто форма.
+
+ModalNew.js - компонент модального окна. Оборачивает ProjectForm через children.
+Принимает пропсы:
+isOpen — открыто ли окно.
+onClose — функция закрытия.
+children — содержимое модального окна.
+Внутри рендерит оверлей и окно с заголовком "Новый проект".
+Внутрь этого модального окна через children можно передать любой JSX, например, форму ProjectForm.
+
+ProjectForm.js — это форма, которая обычно используется внутри модального окна ModalNew.js. То есть в родительском компоненте мы пишем:
+import React, { useState } from "react";
+import ModalNew from "./ModalNew"; // отвечает за отображение модального окна и управление его видимостью
+import ProjectForm from "./ProjectForm"; //отвечает за ввод данных и их отправку на сервер
+
+const App = () => {
+  const [isModalNewOpen, setIsModalNewOpen] = useState(false);
+  const [isModalReadyOpen, setIsModalReadyOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setIsModalNewOpen(true)}>Добавить проект</button>
+      <button onClick={() => setIsModalReadyOpen(true)}>Сохранённые проекты</button>
+
+      <ModalNew isOpen={isModalNewOpen} onClose={() => setIsModalNewOpen(false)}>
+        <ProjectForm /> 
+      </ModalNew>
+
+      <ModalReady isOpen={isModalReadyOpen} onClose={() => setIsModalReadyOpen(false)} />
+    </>
+  );
+};
+
+ModalReady.js - компонент модального окна для отображения и редактирования уже сохранённых проектов. Он реализует собственную логику редактирования прямо внутри себя.
+Использует контекст ProjectContext, чтобы получить список проектов и функции для удаления/редактирования.
+Принимает пропсы:
+isOpen — открыто ли окно.
+onClose — функция закрытия.
+Внутри использует функции из ProjectContext.js: рендерит список проектов с возможностью редактирования и удаления.
+Можно внутри ModalReady.js использовать компонент <ProjectCard />, передавая ему проект и функции из контекста.
+
+ProjectCard.js — это отдельный компонент (карточка одного проекта) с возможностью локального редактирования. 
+Использует ProjectContext и может использоваться для отображения одного проекта с возможностью редактирования и удаления. Но у меня нигде не используется.
