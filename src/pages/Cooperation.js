@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/App.css";
 import ModalReady from "../components/ModalReady";
 import { ProjectProvider } from "../context/ProjectContext";
+import Header from "../components/Header";
 
 const Cooperation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,15 +11,7 @@ const Cooperation = () => {
   return (
     <ProjectProvider>
       <div className="content-area">
-        <nav>
-          <ul>
-            <li><Link to="/">Главная</Link></li>
-            <li><Link to="/stages">Этапы работы</Link></li>
-            <li><Link to="/projects">Проекты</Link></li>
-            <li><Link to="/cooperation">Сотрудничество</Link></li>
-          </ul>
-        </nav>
-
+        <Header />
         <main>
           <section id="section4">
             <h2>Я открыта для новых проектов.</h2>
@@ -42,7 +35,12 @@ const Cooperation = () => {
                     link = "#";
                 }
                 return (
-                  <a key={index} href={link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    key={index}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <button className="cooperation-button">{platform}</button>
                   </a>
                 );
@@ -50,20 +48,19 @@ const Cooperation = () => {
             </div>
 
             <div className="order-button-container">
-              <button className="order-button" onClick={() => setIsModalOpen(true)}>
+              <button
+                className="order-button"
+                onClick={() => setIsModalOpen(true)}
+              >
                 Выбрать проект
               </button>
             </div>
 
-            <ModalReady isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
+            <ModalReady
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+            />
           </section>
-
-          {/*
-          <footer className="footer">
-            <p>&copy; 2025 Анастасия Красун. Все права защищены.</p>
-          </footer> 
-          */}
         </main>
       </div>
     </ProjectProvider>

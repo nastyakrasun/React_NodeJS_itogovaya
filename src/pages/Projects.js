@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"; //импортирую Link для на
 import "../styles/App.css"; //подключаю CSS файл для стилизации
 import project1 from "../components/project1.png";
 import project2 from "../components/project2.png";
+import Header from "../components/Header";
 
 const Projects = () => {
   const toggleDescription = (id) => {
@@ -12,24 +13,7 @@ const Projects = () => {
 
   return (
     <div className="content-area">
-
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Главная</Link>
-          </li>
-          <li>
-            <Link to="/stages">Этапы работы</Link>
-          </li>
-          <li>
-            <Link to="/projects">Проекты</Link>
-          </li>
-          <li>
-            <Link to="/cooperation">Сотрудничество</Link>
-          </li>
-        </ul>
-      </nav>
-
+      <Header />
       <main>
         <section id="section3">
           <div className="title-counter">
@@ -81,11 +65,6 @@ const Projects = () => {
           </div>
         </section>
       </main>
-
-      {/* <footer className="footer">
-        <p>&copy; 2025 Анастасия Красун. Все права защищены.</p>
-      </footer> */}
-
     </div>
   );
 };

@@ -5,6 +5,7 @@ import avatar from "../components/Avatar.png";
 import comButton from "../components/ComButton.png";
 import Modal from "../components/ModalNew";
 import ProjectForm from "../components/ProjectForm";
+import Header from '../components/Header';
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // состояние для управления модальным окном
@@ -19,8 +20,8 @@ const Home = () => {
 
   return (
     <div className="content-area">
-      <nav>
-        <ul>
+      {/* <nav> */}
+        {/* <ul>
           <li>
             <Link to="/">Главная</Link>
           </li>
@@ -34,7 +35,8 @@ const Home = () => {
             <Link to="/cooperation">Сотрудничество</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
+       <Header />
 
       <main>
         <section id="section1">
@@ -63,6 +65,8 @@ const Home = () => {
           <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
             <ProjectForm onSubmit={() => { handleCloseModal(); }} />
           </Modal>
+
+          {/*создать кастомный компонент для кнопки "обсудить проект" + еще 1 кастомный компонент*/}
 
         </section>
       </main>

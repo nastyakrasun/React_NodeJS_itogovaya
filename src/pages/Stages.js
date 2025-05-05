@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"; //импортирую Link для навигации в приложениях React с использованием react-router-dom
 import "../styles/App.css"; //подключаю CSS файл для стилизации
 import icon from "../components/Icon.png";
+import Header from '../components/Header';
 
 const Stages = () => {
   const toggleDescription = (id) => {
@@ -11,23 +12,7 @@ const Stages = () => {
 
   return (
     <div className="content-area">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Главная</Link>
-          </li>
-          <li>
-            <Link to="/stages">Этапы работы</Link>
-          </li>
-          <li>
-            <Link to="/projects">Проекты</Link>
-          </li>
-          <li>
-            <Link to="/cooperation">Сотрудничество</Link>
-          </li>
-        </ul>
-      </nav>
-
+      <Header />
       <main>
         <section id="section2">
           <div className="title-icon">
@@ -61,10 +46,6 @@ const Stages = () => {
           </div>
         </section>
       </main>
-
-      {/* <footer className="footer">
-        <p>&copy; 2025 Анастасия Красун. Все права защищены.</p>
-      </footer> */}
     </div>
   );
 };
