@@ -1,13 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom"; //импортирую Link для навигации в приложениях React с использованием react-router-dom
-import "../styles/App.css"; //подключаю CSS файл для стилизации
-import icon from "../components/Icon.png";
+import React, { useState } from "react";
 import Header from '../components/Header';
+import icon from "../components/Icon.png";
 
 const Stages = () => {
-  const toggleDescription = (id) => {
-    const desc = document.getElementById(id);
-    desc.style.display = desc.style.display === "none" ? "block" : "none";
+  const [openStages, setOpenStages] = useState([false, false, false, false]);
+
+  const toggleDescription = (index) => {
+    setOpenStages(prev => {
+      const newStates = [...prev];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
+  };
+
+  const stages = [
+    "Знакомство",
+    "Коммерческое предложение",
+    "Договор",
+    "Сотрудничество",
+  ];
+
+  const getStageDescription = (index) => {
+    const descriptions = [
+      "Созваниваемся, чтобы обсудить ваши бизнес-цели и потребности для разработки идеального решения, а также объем работ.",
+      "После обсуждения я подготавливаю детализированное коммерческое предложение и сроки выполнения.",
+      "Если предложение вам подходит, подписываем договор и вносите предоплату для старта работ.",
+      "Проводим детальный анализ текущих бизнес-процессов и разрабатываем оптимальное решение для вашей компании.",
+    ];
+    return descriptions[index];
   };
 
   return (
@@ -20,24 +40,18 @@ const Stages = () => {
             <img src={icon} alt="Иконка" className="icon" />
           </div>
           <div className="left-text">
-            {[
-              "Знакомство",
-              "Коммерческое предложение",
-              "Договор",
-              "Сотрудничество",
-            ].map((stage, index) => (
+            {stages.map((stage, index) => (
               <div className="stage" key={index}>
                 <div
                   className="stage-header"
-                  onClick={() => toggleDescription(`desc${index + 1}`)}
+                  onClick={() => toggleDescription(index)}
                 >
                   <h3>{stage}</h3>
-                  <span className="plus">+</span>
+                  <span className="plus">{openStages[index] ? '-' : '+'}</span>
                 </div>
                 <p
                   className="stage-description"
-                  id={`desc${index + 1}`}
-                  style={{ display: "none" }}
+                  style={{ display: openStages[index] ? "block" : "none" }}
                 >
                   {getStageDescription(index)}
                 </p>
@@ -48,16 +62,6 @@ const Stages = () => {
       </main>
     </div>
   );
-};
-
-const getStageDescription = (index) => {
-  const descriptions = [
-    "Созваниваемся, чтобы обсудить ваши бизнес-цели и потребности для разработки идеального решения, а также объем работ.",
-    "После обсуждения я подготавливаю детализированное коммерческое предложение и сроки выполнения.",
-    "Если предложение вам подходит, подписываем договор и вносите предоплату для старта работ.",
-    "Проводим детальный анализ текущих бизнес-процессов и разрабатываем оптимальное решение для вашей компании.",
-  ];
-  return descriptions[index];
 };
 
 export default Stages;

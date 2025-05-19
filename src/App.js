@@ -11,8 +11,6 @@ import "./styles/App.css";
 const App = () => {
   return (
     <ProjectProvider>
-      {" "}
-      {/* Оборачиваем всё приложение */}
       <Router>
         <div className="app">
           <Routes>

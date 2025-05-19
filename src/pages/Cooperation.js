@@ -1,12 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "../styles/App.css";
 import ModalReady from "../components/ModalReady";
 import { ProjectProvider } from "../context/ProjectContext";
 import Header from "../components/Header";
+import CustomButton from "../components/CustomButton";
 
 const Cooperation = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  //массив для динамического отображения компонентов интерфейса
+  const platforms = [
+    {
+      name: "Telegram",
+      link: "tg://resolve?domain=nastyakrasun",
+    },
+    {
+      name: "GitHub",
+      link: "https://github.com/nastyakrasun",
+    },
+    {
+      name: "WhatsApp",
+      link: "https://wa.me/89176101029",
+    },
+  ];
 
   return (
     <ProjectProvider>
@@ -19,41 +36,22 @@ const Cooperation = () => {
             <h2>вместе с 1С!</h2>
 
             <div className="cooperation-buttons">
-              {["Telegram", "GitHub", "WhatsApp"].map((platform, index) => {
-                let link;
-                switch (platform) {
-                  case "Telegram":
-                    link = "tg://resolve?domain=nastyakrasun";
-                    break;
-                  case "GitHub":
-                    link = "https://github.com/nastyakrasun";
-                    break;
-                  case "WhatsApp":
-                    link = "https://wa.me/89176101029";
-                    break;
-                  default:
-                    link = "#";
-                }
-                return (
-                  <a
-                    key={index}
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="cooperation-button">{platform}</button>
-                  </a>
-                );
-              })}
+              {platforms.map((platform, index) => (
+                <CustomButton
+                  key={index}
+                  text={platform.name}
+                  link={platform.link}
+                  className={`cooperation-button ${platform.name.toLowerCase()}`}
+                />
+              ))}
             </div>
 
             <div className="order-button-container">
-              <button
-                className="order-button"
+              <CustomButton
+                text="Выбрать проект"
                 onClick={() => setIsModalOpen(true)}
-              >
-                Выбрать проект
-              </button>
+                className="order-button"
+              />
             </div>
 
             <ModalReady
