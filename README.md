@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+React + Node.js Итоговый проект
+Этот проект представляет собой одностраничное React-приложение с серверной частью на Node.js. Он служит демонстрацией приобретенных навыков в создании полноценных веб-приложений, включающих работу с клиентской и серверной сторонами, маршрутизацию, взаимодействие с данными и оформление интерфейса.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Описание проекта
+В приложении реализована навигация по страницам, отображение информации, а также получение и обработка данных с серверной части.
 
-## Available Scripts
+Структура проекта
+Клиентская часть (React)
+client/ — папка с React-приложением
+src/
+index.js — точка входа
+App.js — маршрутизация и структура приложения
+components/ — компоненты интерфейса:
+Header.js — шапка сайта с навигацией
+Footer.js — подвал сайта
+Home.js — главная страница
+Stages.js — страница "Этапы работы"
+Projects.js — страница "Проекты"
+Cooperation.js — страница "Сотрудничество"
+styles.css — стили для всего приложения
+Изображения: Avatar.png, ComButton.png, и другие
+Серверная часть (Node.js)
+server/
+server.js — минимальный сервер на Express для API или обслуживания запросов
 
-In the project directory, you can run:
+Установка и запуск
+1. Клонирование репозитория
+bash
+git clone https://github.com/nastyakrasun/React_NodeJS_itogovaya
+cd React_NodeJS_itogovaya
+2. Установка клиентской части
+cd client
+npm install
+npm start
+Откроется браузер по адресу: http://localhost:3000
+3. Установка серверной части
+В отдельной вкладке терминала:
+cd ../server
+npm init -y
+npm install express cors body-parser
+node server.js
+Сервер будет доступен по адресу: http://localhost:5000
 
-### `npm start`
+Структура компонентов и ключевые файлы
+Header.js — навигационная панель с ссылками на страницы.
+Footer.js — нижний колонтитул.
+Home.js — главная страница с информацией о разработчике, проектами и кнопками.
+Stages.js — описание этапов работы с возможностью раскрытия деталей.
+Projects.js — список проектов с изображениями и описаниями.
+Cooperation.js — форма сотрудничества и контакты.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Особенности реализации
+Использование React Router для маршрутизации страниц.
+Навигация реализована через компонент <Link>.
+Внутри компонентов реализована логика отображения описаний через состояние (useState) вместо прямого изменения DOM.
+Общий дизайн стилизован через CSS (styles.css) и классы.
+Возможно улучшение дизайна с помощью CSS-фреймворков.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Контакты и авторство
+Автор: Анастасия Красун
+Email: nastyakrasun@gmail.com
+Дата: 25.05.2025
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Если есть вопросы или предложения, создавайте issue или pull request!
+Благодарю за использование моего проекта!
