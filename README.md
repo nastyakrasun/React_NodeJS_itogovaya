@@ -24,8 +24,8 @@ styles.css — стили для всего приложения
 Установка и запуск
 1. Клонирование репозитория
 bash
-git clone https://github.com/nastyakrasun/React_NodeJS_itogovaya
-cd React_NodeJS_itogovaya
+git clone https://github.com/nastyakrasun/React_NodeJS_portfolio
+cd React_NodeJS_portfolio
 2. Установка клиентской части
 npm install
 npm start
@@ -59,4 +59,3 @@ Email: nastyakrasun@gmail.com
 
 Если есть вопросы или предложения, создавайте issue или pull request!
 Благодарю за использование моего проекта!
->>>>>>> branch1
